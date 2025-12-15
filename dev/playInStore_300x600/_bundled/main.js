@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _olg_confettiJs = require("./olg_confetti.js");
+var _proline = require("./proline");
 
 var _helpersHelpersJs = require("./helpers/helpers.js");
 
@@ -18,66 +18,48 @@ gsap.defaults({
 	ease: "power3.out"
 });
 
-var READ_COMPOSITE = { t1: 2.5, t2: 3 };
-var READ_LIVEDEALERS = { t1: 1.6, t2: 3 };
-var READ_GAMESHOW = { t1: 1.6, t2: 3.3 };
+var READ_PLAY_IN_STORE = { t1: 2, t2: 3 };
 
-var READ_ALL = { composite: READ_COMPOSITE, gameshow: READ_GAMESHOW, livedealers: READ_LIVEDEALERS };
+var READ_ALL = { playInStore: READ_PLAY_IN_STORE };
 
 var read = READ_ALL[universalBanner.name];
 var w = bannerSize.w;
 var h = bannerSize.h;
 
-function init(_ref) {
-	var ypy = _ref.ypy;
-	var device = _ref.device;
-	var logoAnimateStart = arguments.length <= 1 || arguments[1] === undefined ? false : arguments[1];
-
+function init() {
 	var tl = new TimelineMax({ onComplete: function onComplete() {
 			if (document.getElementById("legalBtn")) {
 				TweenLite.set("#legalBtn", { display: "block" });
 			}
 		} });
 
-	TweenLite.to(".hero_on", { duration: 2, opacity: 1, yoyo: true, repeat: 0, repeatDelay: 0, ease: "back.out" });
-	TweenLite.to(".phone", { duration: .8, opacity: .6, yoyo: true, repeat: 11, repeatDelay: 0, ease: "back.out" });
-	tl.set(".frame0", { opacity: 1 });
-	tl.from([".ypy_1_", ".ypy_2_", ".ypy_3_"], { duration: .3, opacity: 0, y: "-=200", stagger: .13 });
-	tl.to(".frame0", { duration: .3, opacity: 0 }, "+=1");
 	tl.set(".frame1", { opacity: 1 });
+	tl.from(".arrows", { opacity: 0, duration: .3 });
+	tl.from(".phone", { opacity: 0, y: "+=80", duration: .3 });
+	tl.from(".t1", { opacity: 0, duration: .3 });
+	tl.to(".t1", { opacity: 0, duration: .3 }, "+=" + read.t1);
+	tl.from(".t2", { opacity: 0, duration: .3 });
 
-	tl.add(ypy);
-	tl.add("t1", "+=.2");
-	tl.from([".t1"], { duration: .3, opacity: 0 }, "t1");
-	tl.from([".device"], { duration: .5, opacity: 0 }, "t1");
-	tl.to(".t1", { duration: .3, opacity: 0 }, "+=" + read.t1);
+	tl.from(".hero", { opacity: 0, duration: .3 }, "+=" + read.t2);
+	tl.from(".txt_uyg_big", { opacity: 0, y: "+=80", duration: .3 });
+	tl.to(".txt_uyg_big", { opacity: 0, duration: .3 }, "+=1");
 
-	tl.add("t2");
-	if (device) {
-		tl.add(device);
-	}
+	tl.from(".arrows_2", { opacity: 0, y: "+=80", duration: .3 });
+	tl.from(".phone_2", { opacity: 0, y: "+=80", duration: .3 }, "-=.2");
+	tl.from(".txt_dta", { opacity: 0, x: "-=40", duration: .3 });
 
-	tl.from(".t2", { duration: .3, opacity: 0 }, "t2");
-	tl.to(".t2", { duration: .3, opacity: 0 }, "+=" + read.t2);
-	tl.to([".frame1"], { duration: .3, opacity: 0 });
-	tl.set(".frame2", { opacity: 1 }, "+=.4");
-	// tl.from(".end_device", {duration:.3, opacity:0})
-	tl.from(".end_url", { duration: .3, opacity: 0 }, "+=.3");
-	tl.from(".end_ypy", { duration: .3, opacity: 0 }, "+=.1");
-	tl.from(".end_cta", { duration: .3, opacity: 0, y: "+=50", opacity: 0 }, "+=.1");
+	tl.from([".playsmart", ".legal"], { opacity: 0, duration: .3 });
 
-	tl.add((0, _olg_confettiJs.olg)());
+	tl.add((0, _proline.olg)());
 	return tl;
 }
 
-// olg()
-
 exports.init = init;
-exports.olg = _olg_confettiJs.olg;
+exports.olg = _proline.olg;
 exports.bannerSize = bannerSize;
 exports.read = read;
 
-},{"./helpers/helpers.js":2,"./olg_confetti.js":3,"./ypy_fx.js":4}],2:[function(require,module,exports){
+},{"./helpers/helpers.js":2,"./proline":3,"./ypy_fx.js":4}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -99,27 +81,20 @@ Object.defineProperty(exports, "__esModule", {
 CustomEase.create("custom", "M0,0 C0.14,0 0.234,0.438 0.264,0.561 0.305,0.728 0.4,1.172 0.55,1.172 0.652,1.172 0.722,1.102 0.77,1.024 0.834,0.93 0.89,0.946 0.916,0.946 0.952,0.946 1,1 1,1 ");
 
 function olg() {
-    var time = 1;
-    var tl_olg = new TimelineMax();
+    TweenLite.set("#olg", { opacity: 1 });
 
-    // tl_olg.set("#svg_move", {opacity:1} )
-    tl_olg.to("#svg_idle", { duration: .3, ease: "custom", y: "+=100", opacity: 0 });
+    var tl = new TimelineMax({ onStart: function onStart() {
+            TweenLite.set(".olg-static", { opacity: 0 });
+        } });
 
-    tl_olg.from("#svg_move #olg_bg", { transformOrigin: "0% 100%", duration: .6, ease: "custom", scale: 0 }, .3);
-    tl_olg.from("#svg_move .svg_logo", { duration: .4, opacity: 0, y: "+=50" }, .5);
-    tl_olg.from("#svg_move .con", { stagger: .06, duration: .8, rotation: "+=300", ease: "custom", x: "-=200", y: "+=200", opacity: 0 }, .2);
-    return tl_olg;
+    tl.to("#bluewedge1", { duration: .5, ease: 'power1.inOut', scaleY: 1, scale: 1, x: 0, y: 0 }, 0);
+    tl.to("#redwedge1", { duration: .8, ease: 'power1.inOut', scaleY: 1, scale: 1, x: 0, y: 0 }, 0).from('#group-o', { duration: 1, y: 200, ease: "custom" }, 0).from('#group-l', { duration: 1, y: 200, ease: "custom" }, .1).from('#group-g', { duration: 1, y: 200, ease: "custom" }, .2).from('#group-o', { duration: .8, scale: .4, ease: "power1.out" }, .3).from('#group-l', { duration: .8, scale: .4, ease: "power1.out" }, .4).from('#group-g', { duration: .8, scale: .4, ease: "power1.out" }, .5).from('#letter-o', { duration: .25, scale: 0, ease: 'back.out(2)', svgOrigin: '28pt 75pt' }, .9).from('#letter-l', { duration: .25, scale: 0, ease: 'back.out(2)', svgOrigin: '55pt 75pt' }, 1).from('#letter-g', { duration: .25, scale: 0, ease: 'back.out(2)', svgOrigin: '80pt 75pt' }, 1.1);
+
+    // tl.timeScale(2)
+
+    return tl;
 }
 
-var banner = document.getElementById('banner');
-var bannerSize = { w: banner.offsetWidth, h: banner.offsetHeight };
-
-gsap.defaults({
-    ease: "power2.out"
-});
-
-var w = bannerSize.w;
-var h = bannerSize.h;
 exports.olg = olg;
 
 },{}],4:[function(require,module,exports){

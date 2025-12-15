@@ -11,3 +11,11 @@
 	@include pos(240, 0);	
 	width: 60px;
 }
+
+
+
+#olg{
+	width: 100px;
+	height: 69px;
+	@include pos(0, 195);
+}

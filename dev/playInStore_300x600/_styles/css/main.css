@@ -258,20 +258,8 @@ svg {
   width: 106px;
 }
 
-.device {
-  -webkit-filter: drop-shadow(0px 0px 30px #ffe600) drop-shadow(0px 0px 30px #ffe600);
-  filter: drop-shadow(0px 0px 30px #ffe600) drop-shadow(0px 0px 30px #ffe600);
-}
-
-.phone {
-  -webkit-filter: drop-shadow(0px -6px 10px #FFFFFF) drop-shadow(0px -6px 10px #FFFFFF) drop-shadow(0px -6px 10px #ffe600);
-  filter: drop-shadow(0px -6px 10px #FFFFFF) drop-shadow(0px -6px 10px #FFFFFF) drop-shadow(0px -6px 10px #ffe600);
-  opacity: 0;
-}
-
-.end_device {
-  -webkit-filter: drop-shadow(0px 0px 30px #ffffff) drop-shadow(0px 0px 30px #ffe600);
-  filter: drop-shadow(0px 0px 30px #ffffff) drop-shadow(0px 0px 30px #ffe600);
+#banner {
+  background-color: #00c849;
 }
 
 /*# sourceMappingURL=main.css.map */
