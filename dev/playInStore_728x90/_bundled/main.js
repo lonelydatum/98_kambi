@@ -19,9 +19,9 @@ gsap.defaults({
 });
 
 var READ_PLAY_IN_STORE = { t1: 2, t2: 3.2 };
-var READ_PLUS_BETTING_EASIER = { t1: 2, t2: 3.6 };
-var EARLY_PAYOUT = { t1: 2, t2: 3.6 };
-var PARLAY = { t1: 2, t2: 3.6 };
+var READ_PLUS_BETTING_EASIER = { t1: 2, t2: 3.2 };
+var EARLY_PAYOUT = { t1: 2, t2: 3.5 };
+var PARLAY = { t1: 2, t2: 3.5 };
 
 var READ_ALL = { parlay: PARLAY, plusEarlyPayout: EARLY_PAYOUT, playInStore: READ_PLAY_IN_STORE, plusBettingEasier: READ_PLUS_BETTING_EASIER };
 
