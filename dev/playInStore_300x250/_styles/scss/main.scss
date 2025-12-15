@@ -1,0 +1,19 @@
+@import '../../../_common/styles/b300x250.scss';
+@import '../../../_common/styles/composite.scss';
+
+
+
+
+.device{
+	// @include pos-scale(204, 111, .5);
+	// @include pos-scale(216, 109, .45);
+}
+
+#svg_move,
+#svg_idle {
+  @include pos(-10, 183);
+}
+#olg_main {
+  width: 100px;
+
+}
