@@ -8,11 +8,14 @@ gsap.defaults({
   ease: "power3.out"
 });
 
-const READ_PLAY_IN_STORE = { t1: 2, t2: 3 }
+const READ_PLAY_IN_STORE = { t1: 2, t2: 3.2 }
+const READ_PLUS_BETTING_EASIER = { t1: 2, t2: 3.6 }
+const EARLY_PAYOUT = { t1: 2, t2: 3.6 }
+const PARLAY = { t1: 2, t2: 3.6 }
 
 
 
-const READ_ALL = { playInStore: READ_PLAY_IN_STORE}
+const READ_ALL = { parlay:PARLAY, plusEarlyPayout:EARLY_PAYOUT, playInStore: READ_PLAY_IN_STORE, plusBettingEasier:READ_PLUS_BETTING_EASIER}
 
 const read = READ_ALL[universalBanner.name]
 const {w, h} = bannerSize
@@ -29,10 +32,13 @@ function init(){
 	
 	tl.set(".frame1", {opacity:1})
 	tl.from(".arrows", {opacity:0, duration:.3})
-	tl.from(".phone", {opacity:0, y:"+=80", duration:.3})
+	tl.from(".phone1_a", {opacity:0, y:"+=80", duration:.3})
 	tl.from(".t1", {opacity:0, duration:.3})
+
 	tl.to(".t1", {opacity:0, duration:.3}, `+=${read.t1}`)
-	tl.from(".t2", {opacity:0, duration:.3})
+	tl.add("t2")
+	tl.from(".t2", {opacity:0, duration:.3}, "t2")
+	tl.from(".phone1_b", {opacity:0, duration:.3}, "t2")
 	
 	tl.from(".hero", {opacity:0, duration:.3}, `+=${read.t2}`)
 	tl.from(".txt_uyg_big", {opacity:0, y:"+=80", duration:.3})
