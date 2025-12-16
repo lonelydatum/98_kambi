@@ -50,7 +50,7 @@ function init() {
 
 	tl.add("end");
 	tl.add((0, _proline.olg)(), "end");
-	tl.from(".arrows_2", { opacity: 0, y: "+=80", duration: .3 }, "end");
+	tl.from(".arrows_2", { opacity: 0, duration: .3 }, "end");
 	tl.from(".phone_2", { opacity: 0, y: "+=80", duration: .3 }, "end+=.1");
 	tl.from(".txt_dta", { opacity: 0, x: "-=40", duration: .3 }, "end+=.7");
 
