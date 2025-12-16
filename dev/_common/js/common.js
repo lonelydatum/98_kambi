@@ -29,12 +29,6 @@ function init(){
 		}
 	}})
 
-	if(universalBanner.name==="plusEarlyPayout"){
-		tl.set(".phone_1b", {opacity:0})
-	}
-	
-
-	
 	tl.set(".frame1", {opacity:1})
 	tl.from(".arrows", {opacity:0, duration:.3})
 	tl.from(".phone_1a", {opacity:0, y:"+=80", duration:.3})
@@ -43,8 +37,6 @@ function init(){
 	if(universalBanner.name==="plusEarlyPayout"){
 		tl.to([".t1"], {opacity:0, duration:.3}, `+=${read.t1}`)
 		tl.from(".t2", {opacity:0, duration:.3}, "+=.3")
-		// tl.add("t2")
-		
 	}else{
 		tl.to([".t1", ".phone_1a"], {opacity:0, duration:.3}, `+=${read.t1}`)
 		tl.add("t2")
@@ -52,26 +44,66 @@ function init(){
 		tl.from(".t2", {opacity:0, duration:.3}, "t2+=1")
 	}
 	
-	
-	
-	
 	tl.from(".hero", {opacity:0, duration:.5}, `+=${read.t2}`)
 	tl.from(".txt_uyg_big", {opacity:0, y:"+=80", duration:.3}, "+=.3")
 	tl.to(".txt_uyg_big", {opacity:0, duration:.3}, `+=${uyg}`)
-
-
 	tl.add("end")
 	tl.add(olg(), "end")
 	tl.from(".arrows_2", {opacity:0, duration:.6}, "end")
 	tl.from(".phone_2", {opacity:0, y:"+=80", duration:.3}, "end+=.1")	
 	tl.from(".txt_dta", {opacity:0, x:"-=40", duration:.3}, "end+=.7")
-
 	tl.from([".playsmart", ".legal"], {opacity:0,  duration:.3}, "end")
+	return tl
+}
+
+
+function init_728x90(){	
+	const tl = new TimelineMax({onComplete:()=>{
+		if(document.getElementById("legalBtn")){			
+			TweenLite.set("#legalBtn", {display:"block"})
+		}
+	}})
 
 
 	
+	tl.set(".frame1", {opacity:1})
+	tl.from(".arrows", {opacity:0, duration:.3})
+	tl.from(".phone_1a", {opacity:0, y:"+=80", duration:.3})
+	tl.from(".t1", {opacity:0, duration:.3})
+
+
+	if(universalBanner.name==="playInStore"){
+		// tl.to([".t1"], {opacity:0, duration:.3}, `+=${read.t1}`)
+		// tl.from(".t2", {opacity:0, duration:.3}, "+=.3")
+
+		tl.to([".t1", ".phone_1a"], {opacity:0, duration:.3}, `+=${read.t1}`)
+		tl.add("t2")
+		tl.from(".phone_1b", {opacity:0, duration:.3}, "t2")	
+		tl.from(".t2", {opacity:0, duration:.3}, "t2+=1")
+	}else{
+		tl.to(".t1", {opacity:0, duration:.3}, `+=${read.t1}`)
+		tl.from([".phone_1b", ".t2"], {opacity:0, duration:.3})
+	}
+
+
+
+	
+
+	tl.from(".hero", {opacity:0, duration:.5},`+=${read.t2}`)
+	tl.from(".txt_uyg", {opacity:0, duration:.3}, "+=.3")
+
+	tl.from(".arrow_hero", {opacity:0, duration:.6}, `+=${uyg}`)
+	
+	tl.from(".phone_2", {opacity:0, y:"+=80", duration:.3})	
+	tl.from(".txt_dta", {opacity:0, y:"+=40", duration:.3})
+
+	tl.from([".playsmart", ".legal"], {opacity:0,  duration:.3})
+
+	tl.add(olg())
+	
 	return tl
 }
+
 
 
 function init_320x50(){	
@@ -99,37 +131,6 @@ function init_320x50(){
 	return tl
 }
 
-
-function init_728x90(){	
-	const tl = new TimelineMax({onComplete:()=>{
-		if(document.getElementById("legalBtn")){			
-			TweenLite.set("#legalBtn", {display:"block"})
-		}
-	}})
-
-
-	
-	tl.set(".frame1", {opacity:1})
-	tl.from(".arrows", {opacity:0, duration:.3})
-	tl.from(".phone_1a", {opacity:0, y:"+=80", duration:.3})
-	tl.from(".t1", {opacity:0, duration:.3})
-	tl.to(".t1", {opacity:0, duration:.3}, `+=${read.t1}`)
-	tl.from([".phone_1b", ".t2"], {opacity:0, duration:.3})
-
-	tl.from(".hero", {opacity:0, duration:.5},`+=${read.t2}`)
-	tl.from(".txt_uyg", {opacity:0, duration:.3}, "+=.3")
-
-	tl.from(".arrow_hero", {opacity:0, duration:.6}, `+=${uyg}`)
-	
-	tl.from(".phone_2", {opacity:0, y:"+=80", duration:.3})	
-	tl.from(".txt_dta", {opacity:0, y:"+=40", duration:.3})
-
-	tl.from([".playsmart", ".legal"], {opacity:0,  duration:.3})
-
-	tl.add(olg())
-	
-	return tl
-}
 
 
 
