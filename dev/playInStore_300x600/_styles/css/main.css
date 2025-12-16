@@ -242,11 +242,12 @@ svg {
   width: 82px;
 }
 
-#svg_move,
-#svg_idle {
-  -webkit-transform: translate(-11px, 528px);
-  -ms-transform: translate(-11px, 528px);
-  transform: translate(-11px, 528px);
+#olg {
+  width: 87px;
+  height: 49px;
+  -webkit-transform: translate(0px, 555px);
+  -ms-transform: translate(0px, 555px);
+  transform: translate(0px, 555px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
@@ -254,11 +255,7 @@ svg {
   position: absolute;
 }
 
-#olg_main {
-  width: 106px;
-}
-
-#banner {
+.frame1 {
   background-color: #00c849;
 }
 

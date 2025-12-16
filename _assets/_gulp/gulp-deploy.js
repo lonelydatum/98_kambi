@@ -73,7 +73,7 @@ function log_free(projectName){
         .pipe(replace('<script type="text/javascript" src="http://localhost:48626/takana.js"></script>', ''))
         .pipe(replace("takanaClient.run({host: 'localhost:48626'});", ''))
         
-        
+        .pipe(replace("../_common/images/"+size+"/"+name+"/", ''))
         .pipe(replace("../_common/images/"+name+"/"+size+"/", ''))
         .pipe(replace("../_common/images/"+size+"/", ''))
         .pipe(replace("../_common/images/", ''))

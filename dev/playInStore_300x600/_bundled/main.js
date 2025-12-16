@@ -38,25 +38,73 @@ function init() {
 
 	tl.set(".frame1", { opacity: 1 });
 	tl.from(".arrows", { opacity: 0, duration: .3 });
-	tl.from(".phone1_a", { opacity: 0, y: "+=80", duration: .3 });
+	tl.from(".phone_1a", { opacity: 0, y: "+=80", duration: .3 });
 	tl.from(".t1", { opacity: 0, duration: .3 });
 
 	tl.to(".t1", { opacity: 0, duration: .3 }, "+=" + read.t1);
 	tl.add("t2");
 	tl.from(".t2", { opacity: 0, duration: .3 }, "t2");
-	tl.from(".phone1_b", { opacity: 0, duration: .3 }, "t2");
+	tl.from(".phone_1b", { opacity: 0, duration: .3 }, "t2");
 
 	tl.from(".hero", { opacity: 0, duration: .3 }, "+=" + read.t2);
 	tl.from(".txt_uyg_big", { opacity: 0, y: "+=80", duration: .3 });
 	tl.to(".txt_uyg_big", { opacity: 0, duration: .3 }, "+=1");
 
-	tl.from(".arrows_2", { opacity: 0, y: "+=80", duration: .3 });
-	tl.from(".phone_2", { opacity: 0, y: "+=80", duration: .3 }, "-=.2");
-	tl.from(".txt_dta", { opacity: 0, x: "-=40", duration: .3 });
+	tl.add("end");
+	tl.add((0, _proline.olg)(), "end");
+	tl.from(".arrows_2", { opacity: 0, y: "+=80", duration: .3 }, "end");
+	tl.from(".phone_2", { opacity: 0, y: "+=80", duration: .3 }, "end+=.1");
+	tl.from(".txt_dta", { opacity: 0, x: "-=40", duration: .3 }, "end+=.7");
+
+	tl.from([".playsmart", ".legal"], { opacity: 0, duration: .3 }, "end");
+
+	return tl;
+}
+
+function init_320x50() {
+	var tl = new TimelineMax({ onComplete: function onComplete() {
+			if (document.getElementById("legalBtn")) {
+				TweenLite.set("#legalBtn", { display: "block" });
+			}
+		} });
+
+	tl.set(".frame1", { opacity: 1 });
+	tl.from(".arrows", { opacity: 0, duration: .3 });
+	tl.from(".phone_1a", { opacity: 0, y: "+=80", duration: .3 });
+	tl.from(".t1", { opacity: 0, duration: .3 });
+	tl.from(".t2", { opacity: 0, duration: .3 }, "+=" + read.t1);
+	tl.from(".arrows_2", { opacity: 0, y: "+=80", duration: .3 }, "+=" + read.t2);
+	tl.from(".phone_2", { opacity: 0, y: "+=80", duration: .3 });
+	tl.from(".txt_dta", { opacity: 0, y: "+=40", duration: .3 });
 
 	tl.from([".playsmart", ".legal"], { opacity: 0, duration: .3 });
 
 	tl.add((0, _proline.olg)());
+
+	return tl;
+}
+
+function init_728x90() {
+	var tl = new TimelineMax({ onComplete: function onComplete() {
+			if (document.getElementById("legalBtn")) {
+				TweenLite.set("#legalBtn", { display: "block" });
+			}
+		} });
+
+	tl.set(".frame1", { opacity: 1 });
+	tl.from(".arrows", { opacity: 0, duration: .3 });
+	tl.from(".phone_1a", { opacity: 0, y: "+=80", duration: .3 });
+	tl.from(".t1", { opacity: 0, duration: .3 });
+	tl.to(".t1", { opacity: 0, duration: .3 }, "+=" + read.t1);
+	tl.from(".t2", { opacity: 0, duration: .3 });
+	tl.from(".arrows_2", { opacity: 0, duration: .3 }, "+=" + read.t2);
+	tl.from(".phone_2", { opacity: 0, y: "+=80", duration: .3 });
+	tl.from(".txt_dta", { opacity: 0, y: "+=40", duration: .3 });
+
+	tl.from([".playsmart", ".legal"], { opacity: 0, duration: .3 });
+
+	tl.add((0, _proline.olg)());
+
 	return tl;
 }
 
@@ -64,6 +112,8 @@ exports.init = init;
 exports.olg = _proline.olg;
 exports.bannerSize = bannerSize;
 exports.read = read;
+exports.init_320x50 = init_320x50;
+exports.init_728x90 = init_728x90;
 
 },{"./helpers/helpers.js":2,"./proline":3,"./ypy_fx.js":4}],2:[function(require,module,exports){
 "use strict";
@@ -137,14 +187,11 @@ exports.initYPY = initYPY;
 exports.ypyScroll = ypyScroll;
 
 },{}],5:[function(require,module,exports){
-"use strict";
+'use strict';
 
 var _commonJsCommonJs = require('../../_common/js/common.js');
 
-var ypy = new TimelineMax();
-ypy.from([".ypy_1", ".ypy_2", ".ypy_3"], { duration: .3, y: "-=200", stagger: .13 });
-
-(0, _commonJsCommonJs.init)({ ypy: ypy });
+(0, _commonJsCommonJs.init)();
 
 },{"../../_common/js/common.js":1}]},{},[5])
 

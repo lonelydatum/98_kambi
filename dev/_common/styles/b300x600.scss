@@ -21,11 +21,13 @@
 .logo{		
 	width: 82px;		
 }
+ 
 
-#svg_move,
-#svg_idle {
-  @include pos(-11, 528);
-}
-#olg_main {
-  width: 106px;
+ 
+#olg{
+	width: 87px;
+	height: 49px;
+	@include pos(0, 555);
+	// opacity: .5 !important;
+	
 }

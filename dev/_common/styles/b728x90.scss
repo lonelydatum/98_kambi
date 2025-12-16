@@ -22,35 +22,11 @@
 }
  
 
-
-.logo{	
-	
-	width: 104px;	
-	
-}
-
-
  
-
-#olg_bg{
+#olg{
 	
-	// transform-origin: 0% 100% !important;
-	// transform: translate(0px, 0px) scale(1);
-}
-
-#svg_move, #svg_idle{
-	@include pos(-11, 24);
-}
-
- 
-#olg_main{		
-	width: 102px;	
-}
-
-
-
-
-
-#svg_move{
-	// opacity:0;
+	width: 94px;
+	height: 69px;
+	@include pos(-2, 34);
+	
 }

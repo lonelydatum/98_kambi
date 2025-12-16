@@ -251,17 +251,6 @@ svg {
   width: 72px;
 }
 
-.ypy-all {
-  -webkit-transform: translate(3px, 341px) scale(1.03, 1.03);
-  -ms-transform: translate(3px, 341px) scale(1.03, 1.03);
-  transform: translate(3px, 341px) scale(1.03, 1.03);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  position: absolute;
-}
-
 .logo {
   -webkit-transform: translate(0px, 0px);
   -ms-transform: translate(0px, 0px);
@@ -276,23 +265,7 @@ svg {
   left: 0;
 }
 
-#svg_move,
-#svg_idle {
-  -webkit-transform: translate(-9px, 542px);
-  -ms-transform: translate(-9px, 542px);
-  transform: translate(-9px, 542px);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  position: absolute;
-}
-
-#olg_main {
-  width: 89px;
-}
-
-#banner {
+.frame1 {
   background-color: #00c849;
 }
 
