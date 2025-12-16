@@ -6,7 +6,7 @@ function olg(){
     
     
     const tl = new TimelineMax({onStart(){
-        TweenLite.set(".olg-static", {opacity:0})  
+        // TweenLite.set(".olg-static", {opacity:0})  
     }})
         
     tl.to("#bluewedge1", {duration:.5, ease: 'power1.inOut', scaleY:1, scale:1, x:0, y:0}, 0)

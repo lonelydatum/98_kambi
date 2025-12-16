@@ -1,6 +1,6 @@
 import {olg} from "./proline"
 import {origin} from "./helpers/helpers.js"
-import {initYPY, ypyScroll} from './ypy_fx.js'
+
 const banner = document.getElementById('banner')
 const bannerSize = {w:banner.offsetWidth, h:banner.offsetHeight}
 
@@ -99,8 +99,13 @@ function init_728x90(){
 	tl.from(".phone_1a", {opacity:0, y:"+=80", duration:.3})
 	tl.from(".t1", {opacity:0, duration:.3})
 	tl.to(".t1", {opacity:0, duration:.3}, `+=${read.t1}`)
-	tl.from(".t2", {opacity:0, duration:.3})
-	tl.from(".arrows_2", {opacity:0 , duration:.3},`+=${read.t2}`)
+	tl.from([".phone_1b", ".t2"], {opacity:0, duration:.3})
+
+	tl.from(".hero", {opacity:0, duration:.3},`+=${read.t2}`)
+	tl.from(".txt_uyg", {opacity:0, duration:.3})
+
+	tl.from(".arrow_hero", {opacity:0, duration:.3}, "+=1")
+	
 	tl.from(".phone_2", {opacity:0, y:"+=80", duration:.3})	
 	tl.from(".txt_dta", {opacity:0, y:"+=40", duration:.3})
 

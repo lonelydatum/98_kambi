@@ -9,8 +9,6 @@ var _proline = require("./proline");
 
 var _helpersHelpersJs = require("./helpers/helpers.js");
 
-var _ypy_fxJs = require('./ypy_fx.js');
-
 var banner = document.getElementById('banner');
 var bannerSize = { w: banner.offsetWidth, h: banner.offsetHeight };
 
@@ -96,8 +94,13 @@ function init_728x90() {
 	tl.from(".phone_1a", { opacity: 0, y: "+=80", duration: .3 });
 	tl.from(".t1", { opacity: 0, duration: .3 });
 	tl.to(".t1", { opacity: 0, duration: .3 }, "+=" + read.t1);
-	tl.from(".t2", { opacity: 0, duration: .3 });
-	tl.from(".arrows_2", { opacity: 0, duration: .3 }, "+=" + read.t2);
+	tl.from([".phone_1b", ".t2"], { opacity: 0, duration: .3 });
+
+	tl.from(".hero", { opacity: 0, duration: .3 }, "+=" + read.t2);
+	tl.from(".txt_uyg", { opacity: 0, duration: .3 });
+
+	tl.from(".arrow_hero", { opacity: 0, duration: .3 }, "+=1");
+
 	tl.from(".phone_2", { opacity: 0, y: "+=80", duration: .3 });
 	tl.from(".txt_dta", { opacity: 0, y: "+=40", duration: .3 });
 
@@ -115,7 +118,7 @@ exports.read = read;
 exports.init_320x50 = init_320x50;
 exports.init_728x90 = init_728x90;
 
-},{"./helpers/helpers.js":2,"./proline":3,"./ypy_fx.js":4}],2:[function(require,module,exports){
+},{"./helpers/helpers.js":2,"./proline":3}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -140,7 +143,7 @@ function olg() {
     TweenLite.set("#olg", { opacity: 1 });
 
     var tl = new TimelineMax({ onStart: function onStart() {
-            TweenLite.set(".olg-static", { opacity: 0 });
+            // TweenLite.set(".olg-static", {opacity:0}) 
         } });
 
     tl.to("#bluewedge1", { duration: .5, ease: 'power1.inOut', scaleY: 1, scale: 1, x: 0, y: 0 }, 0);
@@ -154,46 +157,13 @@ function olg() {
 exports.olg = olg;
 
 },{}],4:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-function initYPY() {
-	var tl = new TimelineMax();
-	// tl.set(".ypy-all", {opacity:0})
-	for (var i = 1; i < 11; i++) {
-		tl.set(".ypy-all .ypy_all_" + i + " img", { y: -220 });
-	}
-}
-function ypyScroll() {
-	var tl = new TimelineMax();
-
-	// tl.set(".ypy-all", {opacity:0})
-	tl.add("spin");
-	tl.set(".hide-until", { visibility: "visible" }, "spin");
-	for (var i = 1; i < 11; i++) {
-		var y = i * 20;
-		var duration = i / 11 * 1.6;
-
-		tl.to(".ypy-all .ypy_all_" + i + " img", { ease: "back.inOut", y: (i - 1) * -20 - 2, duration: duration }, "spin");
-	}
-	return tl;
-}
-
-initYPY();
-
-exports.initYPY = initYPY;
-exports.ypyScroll = ypyScroll;
-
-},{}],5:[function(require,module,exports){
 'use strict';
 
 var _commonJsCommonJs = require('../../_common/js/common.js');
 
 (0, _commonJsCommonJs.init)();
 
-},{"../../_common/js/common.js":1}]},{},[5])
+},{"../../_common/js/common.js":1}]},{},[4])
 
 
 //# sourceMappingURL=main.js.map

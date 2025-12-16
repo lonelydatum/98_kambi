@@ -16,11 +16,10 @@
 
 
  
-#svg_move, #svg_idle{
-	@include pos(-13, 162);
+#olg{
+	// border: 1px solid red;
+	width: 167px;
+	height: 81px;
+	@include pos(-2, 171);
+	// opacity: .5 !important;
 }
-#olg_main{		
-	width: 136px;	
-}
-
-
