@@ -240,11 +240,11 @@ svg {
 }
 
 #olg {
-  width: 167px;
+  width: 136px;
   height: 81px;
-  -webkit-transform: translate(-2px, 171px);
-  -ms-transform: translate(-2px, 171px);
-  transform: translate(-2px, 171px);
+  -webkit-transform: translate(-2px, 179px);
+  -ms-transform: translate(-2px, 179px);
+  transform: translate(-2px, 179px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
