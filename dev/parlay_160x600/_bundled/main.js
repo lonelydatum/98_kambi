@@ -45,8 +45,8 @@ function init() {
 	tl.from(".phone_1b", { opacity: 0, duration: .3 }, "t2");
 	tl.from(".t2", { opacity: 0, duration: .3 }, "t2+=1");
 
-	tl.from(".hero", { opacity: 0, duration: .3 }, "+=" + read.t2);
-	tl.from(".txt_uyg_big", { opacity: 0, y: "+=80", duration: .3 });
+	tl.from(".hero", { opacity: 0, duration: .5 }, "+=" + read.t2);
+	tl.from(".txt_uyg_big", { opacity: 0, y: "+=80", duration: .3 }, "+=.3");
 	tl.to(".txt_uyg_big", { opacity: 0, duration: .3 }, "+=" + uyg);
 
 	tl.add("end");
@@ -97,8 +97,8 @@ function init_728x90() {
 	tl.to(".t1", { opacity: 0, duration: .3 }, "+=" + read.t1);
 	tl.from([".phone_1b", ".t2"], { opacity: 0, duration: .3 });
 
-	tl.from(".hero", { opacity: 0, duration: .3 }, "+=" + read.t2);
-	tl.from(".txt_uyg", { opacity: 0, duration: .3 });
+	tl.from(".hero", { opacity: 0, duration: .5 }, "+=" + read.t2);
+	tl.from(".txt_uyg", { opacity: 0, duration: .3 }, "+=.3");
 
 	tl.from(".arrow_hero", { opacity: 0, duration: .6 }, "+=" + uyg);
 
