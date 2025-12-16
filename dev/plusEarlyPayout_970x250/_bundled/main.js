@@ -35,15 +35,25 @@ function init() {
 			}
 		} });
 
+	if (universalBanner.name === "plusEarlyPayout") {
+		tl.set(".phone_1b", { opacity: 0 });
+	}
+
 	tl.set(".frame1", { opacity: 1 });
 	tl.from(".arrows", { opacity: 0, duration: .3 });
 	tl.from(".phone_1a", { opacity: 0, y: "+=80", duration: .3 });
 	tl.from(".t1", { opacity: 0, duration: .3 });
 
-	tl.to([".t1", ".phone_1a"], { opacity: 0, duration: .3 }, "+=" + read.t1);
-	tl.add("t2");
-	tl.from(".phone_1b", { opacity: 0, duration: .3 }, "t2");
-	tl.from(".t2", { opacity: 0, duration: .3 }, "t2+=1");
+	if (universalBanner.name === "plusEarlyPayout") {
+		tl.to([".t1"], { opacity: 0, duration: .3 }, "+=" + read.t1);
+		tl.from(".t2", { opacity: 0, duration: .3 }, "+=.3");
+		// tl.add("t2")
+	} else {
+			tl.to([".t1", ".phone_1a"], { opacity: 0, duration: .3 }, "+=" + read.t1);
+			tl.add("t2");
+			tl.from(".phone_1b", { opacity: 0, duration: .3 }, "t2");
+			tl.from(".t2", { opacity: 0, duration: .3 }, "t2+=1");
+		}
 
 	tl.from(".hero", { opacity: 0, duration: .5 }, "+=" + read.t2);
 	tl.from(".txt_uyg_big", { opacity: 0, y: "+=80", duration: .3 }, "+=.3");
@@ -158,9 +168,11 @@ function olg() {
 exports.olg = olg;
 
 },{}],4:[function(require,module,exports){
-'use strict';
+"use strict";
 
 var _commonJsCommonJs = require('../../_common/js/common.js');
+
+TweenLite.set(".phone_1b", { opacity: 0 });
 
 (0, _commonJsCommonJs.init_728x90)();
 
