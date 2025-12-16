@@ -10,7 +10,7 @@ gsap.defaults({
 
 const READ_PLAY_IN_STORE = { t1: 2, t2: 3.2 }
 const READ_PLUS_BETTING_EASIER = { t1: 2, t2: 3.2 }
-const EARLY_PAYOUT = { t1: 2, t2: 3.5 }
+const EARLY_PAYOUT = { t1: 2, t2: 2.2 }
 const PARLAY = { t1: 2, t2: 3.5 }
 
 
