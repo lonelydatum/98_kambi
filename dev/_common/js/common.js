@@ -5,7 +5,7 @@ const banner = document.getElementById('banner')
 const bannerSize = {w:banner.offsetWidth, h:banner.offsetHeight}
 
 gsap.defaults({
-  ease: "power3.out"
+  ease: "power2.out"
 });
 
 const READ_PLAY_IN_STORE = { t1: 2, t2: 3.2 }
@@ -18,6 +18,7 @@ const PARLAY = { t1: 2, t2: 3.5 }
 const READ_ALL = { parlay:PARLAY, plusEarlyPayout:EARLY_PAYOUT, playInStore: READ_PLAY_IN_STORE, plusBettingEasier:READ_PLUS_BETTING_EASIER}
 
 const read = READ_ALL[universalBanner.name]
+const uyg = 1.5
 const {w, h} = bannerSize
  
 
@@ -35,19 +36,20 @@ function init(){
 	tl.from(".phone_1a", {opacity:0, y:"+=80", duration:.3})
 	tl.from(".t1", {opacity:0, duration:.3})
 
-	tl.to(".t1", {opacity:0, duration:.3}, `+=${read.t1}`)
+	tl.to([".t1", ".phone_1a"], {opacity:0, duration:.3}, `+=${read.t1}`)
 	tl.add("t2")
-	tl.from(".t2", {opacity:0, duration:.3}, "t2")
 	tl.from(".phone_1b", {opacity:0, duration:.3}, "t2")
+	tl.from(".t2", {opacity:0, duration:.3}, "t2+=1")
+	
 	
 	tl.from(".hero", {opacity:0, duration:.3}, `+=${read.t2}`)
 	tl.from(".txt_uyg_big", {opacity:0, y:"+=80", duration:.3})
-	tl.to(".txt_uyg_big", {opacity:0, duration:.3}, "+=1")
+	tl.to(".txt_uyg_big", {opacity:0, duration:.3}, `+=${uyg}`)
 
 
 	tl.add("end")
 	tl.add(olg(), "end")
-	tl.from(".arrows_2", {opacity:0, duration:.3}, "end")
+	tl.from(".arrows_2", {opacity:0, duration:.6}, "end")
 	tl.from(".phone_2", {opacity:0, y:"+=80", duration:.3}, "end+=.1")	
 	tl.from(".txt_dta", {opacity:0, x:"-=40", duration:.3}, "end+=.7")
 
@@ -104,7 +106,7 @@ function init_728x90(){
 	tl.from(".hero", {opacity:0, duration:.3},`+=${read.t2}`)
 	tl.from(".txt_uyg", {opacity:0, duration:.3})
 
-	tl.from(".arrow_hero", {opacity:0, duration:.3}, "+=1")
+	tl.from(".arrow_hero", {opacity:0, duration:.6}, `+=${uyg}`)
 	
 	tl.from(".phone_2", {opacity:0, y:"+=80", duration:.3})	
 	tl.from(".txt_dta", {opacity:0, y:"+=40", duration:.3})
